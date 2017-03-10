@@ -45,4 +45,17 @@ describe Board do
     end
   end
 
+  describe '#winner' do
+    it 'knows when neither player has yet won the game' do
+      expect(board.winner?).to be(false)
+    end
+
+    it 'knows when a player has won the game' do
+      board.fill_square('X', 'A1')
+      board.fill_square('X', 'A2')
+      board.fill_square('X', 'A3')
+      expect(board.winner?).to be(true)
+    end
+  end
+
 end

@@ -22,6 +22,7 @@ class Game
   private
 
   def game_over_checks
+    raise "game over - #{current_player.name} wins!" if @board.winner?
     raise 'game over - no squares remaining!' if @board.all_squares_taken?
   end
 

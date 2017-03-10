@@ -10,4 +10,8 @@ class Board
       end
     end
   end
+
+  def fill_square(player, square)
+    @grid[square.to_sym].set_to_taken(player)
+  end
 end

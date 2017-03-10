@@ -9,4 +9,16 @@ describe Board do
     end
   end
 
+  describe '#fill_square' do
+    it 'sets taken to true on the chosen square' do
+      board.fill_square('X', 'A1')
+      expect(board.grid[:A1].taken).to be(true)
+    end
+
+    it 'sets taken_by to the current player\'s name on the chosen square' do
+      board.fill_square('X', 'A1')
+      expect(board.grid[:A1].taken_by).to eq('X')
+    end
+  end
+
 end

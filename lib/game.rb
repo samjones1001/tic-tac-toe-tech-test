@@ -9,10 +9,10 @@ class Game
     @board = board
   end
 
-  # def play_turn(square)
-  #   @board.fill_square(@current_player.name, square)
-  #   switch_turn
-  # end
+  def play_turn(square_ref)
+    @board.fill_square(@current_player.name, square_ref)
+    switch_turn
+  end
 
   def switch_turn
     @current_player == player_1 ? @current_player = player_2 : @current_player = player_1

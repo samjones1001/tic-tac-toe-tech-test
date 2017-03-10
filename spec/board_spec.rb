@@ -26,4 +26,23 @@ describe Board do
     end
   end
 
+  describe '#all_squares_taken?' do
+    it 'knows when there are still squares available' do
+      expect(board.all_squares_taken?).to be(false)
+    end
+
+    it 'knows when all squares are taken' do
+      board.fill_square('X', 'A1')
+      board.fill_square('O', 'A2')
+      board.fill_square('X', 'A3')
+      board.fill_square('O', 'B1')
+      board.fill_square('X', 'B2')
+      board.fill_square('Y', 'B3')
+      board.fill_square('Y', 'C1')
+      board.fill_square('X', 'C2')
+      board.fill_square('Y', 'C3')
+      expect(board.all_squares_taken?).to be(true)
+    end
+  end
+
 end

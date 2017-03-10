@@ -16,10 +16,17 @@ class Board
     @grid[square_ref.to_sym].set_to_taken(player)
   end
 
+  def all_squares_taken?
+    taken_squares = @grid.select{ |k,v| v.taken == true }
+    taken_squares.length == @grid.length
+  end
+
   private
 
   def square_taken?(square_ref)
     @grid[square_ref.to_sym].taken == true
   end
+
+
 
 end

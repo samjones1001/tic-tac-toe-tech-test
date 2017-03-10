@@ -11,7 +11,15 @@ class Board
     end
   end
 
-  def fill_square(player, square)
-    @grid[square.to_sym].set_to_taken(player)
+  def fill_square(player, square_ref)
+    raise 'That square is already taken!' if square_taken?(square_ref)
+    @grid[square_ref.to_sym].set_to_taken(player)
   end
+
+  private
+
+  def square_taken?(square_ref)
+    @grid[square_ref.to_sym].taken == true
+  end
+
 end

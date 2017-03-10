@@ -19,6 +19,11 @@ describe Board do
       board.fill_square('X', 'A1')
       expect(board.grid[:A1].taken_by).to eq('X')
     end
+
+    it 'raises an error if the square is already filled' do
+      board.fill_square('X', 'A1')
+      expect{ board.fill_square('X', 'A1') }.to raise_error
+    end
   end
 
 end

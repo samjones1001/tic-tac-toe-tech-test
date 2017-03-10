@@ -37,10 +37,10 @@ describe Board do
       board.fill_square('X', 'A3')
       board.fill_square('O', 'B1')
       board.fill_square('X', 'B2')
-      board.fill_square('Y', 'B3')
-      board.fill_square('Y', 'C1')
+      board.fill_square('O', 'B3')
+      board.fill_square('O', 'C1')
       board.fill_square('X', 'C2')
-      board.fill_square('Y', 'C3')
+      board.fill_square('O', 'C3')
       expect(board.all_squares_taken?).to be(true)
     end
   end

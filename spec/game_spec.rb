@@ -35,8 +35,15 @@ describe Game do
 
     describe '#play_turn' do
       it 'fills the selected square with the current_player\'s name' do
+        allow(board).to receive(:all_squares_taken?).and_return false
         expect(board).to receive(:fill_square).with('X', 'A1')
-        game.play_turn('A1')        
+        game.play_turn('A1')
+      end
+
+      it 'ends the game if all squares have been taken' do
+        allow(board).to receive(:fill_square)
+        allow(board).to receive(:all_squares_taken?).and_return true
+        expect { game.play_turn('C1') }.to raise_error('game over - no squares remaining!')
       end
     end
 

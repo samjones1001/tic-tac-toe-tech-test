@@ -27,6 +27,4 @@ class Board
     @grid[square_ref.to_sym].taken == true
   end
 
-
-
 end

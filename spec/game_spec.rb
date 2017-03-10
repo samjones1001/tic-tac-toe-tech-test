@@ -17,5 +17,10 @@ describe Game do
       expect(game.player_1.name).to eq('X')
       expect(game.player_2.name).to eq('O')
     end
+
+    it 'creates a new board' do
+      expect(Board).to receive(:new)
+      new_game = Game.new
+    end
   end
 end

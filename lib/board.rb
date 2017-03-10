@@ -31,7 +31,7 @@ class Board
   end
 
   def winner?
-    find_possilbe_wins
+    find_possible_wins
     @possible_wins.each do |combo|
       return true if (@grid[combo[0].to_sym].taken_by == @grid[combo[1].to_sym].taken_by && @grid[combo[0].to_sym].taken_by == @grid[combo[2].to_sym].taken_by)
     end
@@ -40,7 +40,7 @@ class Board
 
   private
 
-  def find_possilbe_wins
+  def find_possible_wins
     @possible_wins = []
     WINNING_COMBOS.each do |combo|
       @possible_wins.push(combo) if (@grid[combo[0].to_sym].taken && @grid[combo[1].to_sym].taken && @grid[combo[2].to_sym].taken)

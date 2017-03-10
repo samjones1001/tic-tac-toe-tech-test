@@ -27,6 +27,18 @@ describe Game do
       expect(Board).to receive(:new)
       new_game = Game.new
     end
+  end
 
+  describe '#switch_turn' do
+    it 'changes the current player' do
+      game.switch_turn
+      expect(game.current_player).to eq(player_2)
+    end
+
+    it 'can deal with multiple switches' do
+      game.switch_turn
+      game.switch_turn
+      expect(game.current_player).to eq(player_1)
+    end
   end
 end

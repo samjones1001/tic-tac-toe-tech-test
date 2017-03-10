@@ -9,4 +9,8 @@ class Game
     @board = board
   end
 
+  def switch_turn
+    @current_player == player_1 ? @current_player = player_2 : @current_player = player_1
+  end
+
 end

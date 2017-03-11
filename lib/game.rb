@@ -1,3 +1,7 @@
+require_relative 'board'
+require_relative 'square'
+require_relative 'player'
+
 class Game
 
   attr_reader :player_1, :player_2, :current_player, :board

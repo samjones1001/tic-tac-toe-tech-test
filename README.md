@@ -17,13 +17,15 @@ The rules of tic-tac-toe are as follows:
 Build the business logic for a game of tic tac toe. It should be easy to implement a working game of tic tac toe by combining your code with any user interface, whether web or command line. 
 
 ## Outline
-My solution uses three classes - Account, Transaction, and Statement - and makes use of dependency injection to reduce coupling.  Overall, I am happy with the simplicity of my codebase - I think the classes and methods are well named and perform a clear function.  Given more time, I would have liked to continue working on the presentation of the final output of the Statment class, as this is still not quite right.
+My solution to this tech tests uses four classes - Game, Player, Board and Square.  Generally speaking I am happy with the simplicity of the solution and the clear responsibilities of each class.  However, given more time I would have liked to work more on the logic for determining if a play has yet won the game within the Board class, as I feel it is a little convoluted in its present state.
+
+In retrospect, I also don't think that Player is a true class, and I feel it might better be represented as a constant within the Game class.
 
 ## Usage Instructions
 * clone the repo and run bundle
 ```shell
-$ git clone https://github.com/samjones1001/bank-tech-test
-$ cd bank-tech-test
+$ git clone https://github.com/samjones1001/tic-tac-toe-tech-test
+$ cd bank-tic-tac-toe-tech-test
 $ rvm 2.3.0
 $ bundle
 ```
@@ -34,9 +36,13 @@ $ rspec
 * usage 
 ```shell
 $ irb
-2.3.0 :001 > require './lib/account'
-2.3.0 :002 > account = Account.new
-2.3.0 :003 > account.deposit(1000)
-2.3.0 :004 > account.withdraw(250)
-2.3.0 :005 > puts account.statement.pretty_print
+2.3.0 :001 > require './lib/game'
+2.3.0 :002 > game = Game.new
+2.3.0 :003 > game.play_turn('A1')
+2.3.0 :004 > game.play_turn('A1')
+2.3.0 :005 > game.play_turn('A2')
+2.3.0 :006 > game.play_turn('B1')
+2.3.0 :007 > game.play_turn('B2')
+2.3.0 :008 > game.play_turn('C1')
+RuntimeError: game over - X wins!
 ```

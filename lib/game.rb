@@ -10,20 +10,20 @@ class Game
   end
 
   def play_turn(square_ref)
-    @board.fill_square(@current_player.name, square_ref)
+    board.fill_square(current_player.name, square_ref)
     game_over_checks
     switch_turn
   end
 
   def switch_turn
-    @current_player == player_1 ? @current_player = player_2 : @current_player = player_1
+    current_player == player_1 ? @current_player = player_2 : @current_player = player_1
   end
 
   private
 
   def game_over_checks
-    raise "game over - #{current_player.name} wins!" if @board.winner?
-    raise 'game over - no squares remaining!' if @board.all_squares_taken?
+    raise "game over - #{current_player.name} wins!" if board.winner?
+    raise 'game over - no squares remaining!' if board.all_squares_taken?
   end
 
 end

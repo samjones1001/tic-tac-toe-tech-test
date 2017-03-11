@@ -22,7 +22,7 @@ describe Board do
 
     it 'raises an error if the square is already filled' do
       board.fill_square('X', 'A1')
-      expect{ board.fill_square('X', 'A1') }.to raise_error
+      expect{ board.fill_square('X', 'A1') }.to raise_error('That square is already taken!')
     end
   end
 

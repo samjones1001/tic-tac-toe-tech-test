@@ -22,18 +22,18 @@ class Board
 
   def fill_square(player, square_ref)
     raise 'That square is already taken!' if square_taken?(square_ref)
-    @grid[square_ref.to_sym].set_to_taken(player)
+    grid[square_ref.to_sym].set_to_taken(player)
   end
 
   def all_squares_taken?
-    taken_squares = @grid.select{ |k,v| v.taken == true }
-    taken_squares.length == @grid.length
+    taken_squares = grid.select{ |k,v| v.taken == true }
+    taken_squares.length == grid.length
   end
 
   def winner?
     find_possible_wins
     @possible_wins.each do |combo|
-      return true if (@grid[combo[0].to_sym].taken_by == @grid[combo[1].to_sym].taken_by && @grid[combo[0].to_sym].taken_by == @grid[combo[2].to_sym].taken_by)
+      return true if (grid[combo[0].to_sym].taken_by == grid[combo[1].to_sym].taken_by && grid[combo[0].to_sym].taken_by == grid[combo[2].to_sym].taken_by)
     end
     false
   end
@@ -43,12 +43,12 @@ class Board
   def find_possible_wins
     @possible_wins = []
     WINNING_COMBOS.each do |combo|
-      @possible_wins.push(combo) if (@grid[combo[0].to_sym].taken && @grid[combo[1].to_sym].taken && @grid[combo[2].to_sym].taken)
+      @possible_wins.push(combo) if (grid[combo[0].to_sym].taken && grid[combo[1].to_sym].taken && grid[combo[2].to_sym].taken)
     end
   end
 
   def square_taken?(square_ref)
-    @grid[square_ref.to_sym].taken == true
+    grid[square_ref.to_sym].taken == true
   end
 
 end
